@@ -7,7 +7,6 @@
 
 <script lang="ts">
   import {goto} from '$app/navigation'
-  import {session} from '$app/stores'
   import {isFetchError, FetchError, User} from '$lib/api'
 
   import Input from '$lib/components/Input.svelte'
@@ -21,8 +20,7 @@
 
   const submit = async () => {
     const response = await User.post({
-      data: {handle, password, full_name: fullName, preferred_name: preferredName},
-      token: $session.token,
+      data: {handle, password, full_name: fullName, preferred_name: preferredName}
     })
 
     if (isFetchError(response)) {

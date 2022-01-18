@@ -3,7 +3,7 @@
   import type {Load} from '@sveltejs/kit'
 
   export const load: Load = async ({session}) =>
-    checkToken(session.token)
+    await checkToken({token: session.token})
 </script>
 
 <script lang="ts">
